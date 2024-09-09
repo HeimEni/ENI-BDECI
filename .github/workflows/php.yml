@@ -38,11 +38,11 @@ jobs:
       - name: Deploy to servers
         run: |
           sudo apt-get install -y sshpass
-          sshpass -p ${{ secrets.SERVER_PASSWORD }} rsync -av -e 'ssh -o StrictHostKeyChecking=no -p 22103' ./ root@private.blizzfull.fr:/var/www/enibde
+          sshpass -p ${{ secrets.SERVER_PASSWORD }} rsync -av -e 'ssh -o StrictHostKeyChecking=no -P 22103' ./ root@private.blizzfull.fr:/var/www/enibde
 
       - name: modify .env
         run: |
-          sshpass -p ${{ secrets.SERVER_PASSWORD }} ssh -p 22103 -o StrictHostKeyChecking=no root@private.blizzfull.fr << 'EOF'
+          sshpass -p ${{ secrets.SERVER_PASSWORD }} ssh -P 22103 -o StrictHostKeyChecking=no root@private.blizzfull.fr << 'EOF'
           cd /var/www/enibde
           export APP_ENV=prod
           export DATABASE_URL=${{ MYSQL_URL }}
