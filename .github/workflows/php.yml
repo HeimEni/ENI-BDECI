@@ -44,8 +44,10 @@ jobs:
         run: |
           sshpass -p "${{ secrets.SERVER_PASSWORD }}" ssh -p 22103 -o StrictHostKeyChecking=no root@private.blizzfull.fr << 'EOF'
           cd /var/www/enibde
-          echo 'APP_ENV=prod' >> .env.local
-          echo 'DATABASE_URL="${{ secrets.MYSQL_URL }}"' >> .env.local
+          sed -i '/APP_ENV/d' .env || true
+          sed -i '/DATABASE_URL/d' .env || true
+          echo "APP_ENV=prod" >> .env
+          echo "DATABASE_URL=${{ secrets.MYSQL_URL }}" >> .env
           EOF
 
       - name: migrations
