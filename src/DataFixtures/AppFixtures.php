@@ -86,7 +86,7 @@ class AppFixtures extends Fixture
             $$campusVar->setLongitude($campusData['longitude']);
             $$campusVar->setNblimitPlaces($campusData['nbLimitPlaces']);
             $$campusVar->setFileName('campus_ident.jpg');
-            $$campusVar->setAddress($campusData['address']);
+            $$campusVar->setAdresse($campusData['address']);
             $$campusVar->setPostalCode($campusData['postalCode']);
             $$campusVar->setCity($campusData['city']);
             $manager->persist($$campusVar);
@@ -102,7 +102,7 @@ class AppFixtures extends Fixture
             $$lieuVar->setPostalCode($lieuData['postalCode']);
             $$lieuVar->setCity($lieuData['city']);
             $$lieuVar->setFileName('campus_ident.jpg');
-            $$lieuVar->setAddress($lieuData['address']);
+            $$lieuVar->setAdresse($lieuData['address']);
             $manager->persist($$lieuVar);
         }
 
