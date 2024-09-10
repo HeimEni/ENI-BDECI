@@ -52,7 +52,7 @@ jobs:
 #          "${{ secrets.MYSQL_URL }}"
       - name: Create .env.local
         run: |
-          sshpass -p "${{ secrets.SERVER_PASSWORD }}" ssh -p 22103 -o StrictHostKeyChecking=no ${{ secrets.SERVER_HOSTNAME }} "bash -s" << EOF
+          sshpass -p "${{ secrets.SERVER_PASSWORD }}" ssh -p 22103 -o StrictHostKeyChecking=no ${{ secrets.SERVER_HOSTNAME }} << EOF
           cd /var/www/enibde
           cat << EOT > .env.local
           APP_ENV=prod
