@@ -58,7 +58,6 @@ jobs:
           APP_ENV=prod
           DATABASE_URL="${{ secrets.MYSQL_URL }}"
           EOT
-          chmod 600 .env.local
           EOF
 
       - name: migrations
