@@ -102,7 +102,7 @@ class AppFixtures extends Fixture
             $$lieuVar->setPostalCode($lieuData['postalCode']);
             $$lieuVar->setCity($lieuData['city']);
             $$lieuVar->setFileName('campus_ident.jpg');
-            $$lieuVar->setAdresse($lieuData['address']);
+            $$lieuVar->setAdress($lieuData['address']);
             $manager->persist($$lieuVar);
         }
 
